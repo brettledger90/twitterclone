@@ -1,0 +1,24 @@
+{% extends 'home.html' %}
+{% block main %}
+<h1>MY PROFILE</h1>
+    <body>
+            <form method='post'>
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <input type='submit' value='Submit' />
+                </form>
+                <a href ='/{{user.username}}/follow/'>Follow</a>
+                <div>
+                    {% for tweet in user.profile.tweets.all %}
+                    <div>
+                        {{tweet.tweet}}
+
+                    </div>
+                    {% endfor %}
+                </div>
+                
+    </body>
+
+{% endblock %}
+    

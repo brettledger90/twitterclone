@@ -1,0 +1,21 @@
+<html>
+<body>
+{% if user.is_authenticated %}
+    <div class= 'navbar' style="display: flex;">
+        <a href = " /home"><button>Home</button> </a>
+        <a href = " /{{user.username}}"><button>Profile</button> </a>
+        <a href=" /timeline "><button>Timeline</button> </a>
+        <a href="{% url 'logout' %}"> <button>Logout</button> </a>
+    </div>
+  
+  
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+<main>
+  {% block main %}
+  {% endblock %}
+</main>
+</body>
+</html>
