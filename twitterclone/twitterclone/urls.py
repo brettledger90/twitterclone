@@ -25,10 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('signup/', SignUp, name='signup'),
+    path('signup/', SignUp.as_view(), name='signup'),
     path('timeline/', timeline, name="timeline"),
     path('<str:username>/follow/', Follow, name= "follow" ),
-    path('<str:username>/', Profile, name = "profile" ),
+    path('<str:username>/', Profile.as_view(), name = "profile" ),
     
 
 
